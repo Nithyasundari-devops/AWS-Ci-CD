@@ -6,13 +6,20 @@ phases:
       nodejs: 14
   build:
     commands:
-      - echo Build started on `date`
-      - echo Copying files to build directory
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - echo "Build started on $(date)"
+      - echo "Copying files to build directory"
+      # Add your actual build commands here
+      - npm install
+      - npm run build
+      
 artifacts:
   files:
-    - '**/*'
-  base-directory: /
-
+    - '**/*.html'
+    - '**/*.css'
+    - '**/*.js'
+    - 'scripts/**/*'
+    - 'images/**/*'
+    - 'apps/**/*'
+    - 'appspec.yml'  
+  base-directory: 'dist'  # Point to your build output directory if applicable
+  discard-paths: no
