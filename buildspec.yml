@@ -9,8 +9,12 @@ phases:
       - echo "Build started on $(date)"
       - echo "Copying files to build directory"
       # Add your actual build commands here
-      - npm install
-      - npm run build
+      - echo "Build started on $(date)"
+      - mkdir -p dist
+      - cp *.html dist/ || true
+      - cp *.css dist/ || true
+      - cp *.js dist/ || true
+      - cp -r assets/ dist/ || true
       
 artifacts:
   files:
@@ -22,4 +26,5 @@ artifacts:
     - 'apps/**/*'
     - 'appspec.yml'  
   base-directory: 'dist'  # Point to your build output directory if applicable
-  discard-paths: no
+  discard-paths:no
+
