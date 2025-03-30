@@ -8,14 +8,15 @@ phases:
     commands:
       - echo "Build started on $(date)"
       - echo "Copying files to build directory"
-      # Add your actual build commands here
-      - echo "Build started on $(date)"
       - mkdir -p dist
       - cp *.html dist/ || true
       - cp *.css dist/ || true
       - cp *.js dist/ || true
       - cp -r assets/ dist/ || true
-      
+      - cp -r scripts/ dist/ || true
+      - cp -r images/ dist/ || true
+      - cp appspec.yml dist/ || true
+
 artifacts:
   files:
     - '**/*.html'
@@ -24,6 +25,6 @@ artifacts:
     - 'scripts/**/*'
     - 'images/**/*'
     - 'apps/**/*'
-    - 'appspec.yml'  
-  base-directory: 'dist'  # Point to your build output directory if applicable
-  discard-paths:no
+    - 'appspec.yml'
+  base-directory: 'dist'
+  discard-paths: no
