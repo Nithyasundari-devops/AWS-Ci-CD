@@ -27,4 +27,3 @@ artifacts:
     - 'appspec.yml'  
   base-directory: 'dist'  # Point to your build output directory if applicable
   discard-paths:no
-
